@@ -12,7 +12,7 @@ nelx = 300;
 nely = 22;
 
 % Choose the set of files to average and interpolate
-set = 4;
+set = 6;
 [files, T] = set_files(set);
 
 
