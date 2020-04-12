@@ -38,4 +38,7 @@ data_int = data_int/tT;
 data_int(:,:,1) = xx;
 data_int(:,:,2) = yy;
 toc
+
+output_sts = ['stsINT',num2str(set),'.mat']
+
 save(output_sts,'data_int')
