@@ -3,7 +3,7 @@ clear all
 addpath matlab_script/
 
 % Load an unroll data
-L = load('stsINT6.mat');
+L = load('stsINT7.mat');
 data = L.data_int;
 
 x = data(:,:,1);
@@ -98,20 +98,35 @@ grid on
 ylabel("$\left(\sqrt{\overline{u_{t}'u_{t}'}}\right)_{max}$",...
        'Interpreter','latex', 'FontSize',20)
 
-stp = 10;
+stp = 1;
 subplot(223)
 hold on
 plot(S(1,in0:stp:end),cf1(in0:stp:end),'linewidth',1.5)
-plot(S(1,in0:stp:end),2/Re*dtdn(1,in0:stp:end),'linewidth',1.5)
+%plot(S(1,in0:stp:end),2/Re*dtdn(1,in0:stp:end),'linewidth',1.5)
 xlabel("$x/c$",'Interpreter','latex','FontSize',14)
 xlim([0,0.4])
 grid on
 ylabel("$c_{fx}$",'Interpreter','latex', 'FontSize',20)
 
 subplot(224)
+hold on
 plot(S(1,in0:end),cf2(in0:end),'linewidth',1.5)
+%plot(S(1,in0:stp:end),2/Re*dwdn(1,in0:stp:end),'linewidth',1.5)
 grid on
 ylabel('$c_{fz}$','Interpreter','latex', 'FontSize',20)
 xlabel("$x/c$",'Interpreter','latex','FontSize',16)
 xlim([0,0.4])
+
+
+figure()
+contourf(S(:,in0:end),N(:,in0:end)*sqrt(Re),p(:,in0:end), 'LineStyle','none')
+xlim([0,0.4])
+ylim([0,0.01*sqrt(Re)])
+ylabel('$n/\delta$','Interpreter','latex')
+xlabel('$x/c$','Interpreter','latex')
+title("$\sqrt{\overline{u_{t}'u_{t}'}}$",'Interpreter','latex')
+colorbar()
+
+
+
 
