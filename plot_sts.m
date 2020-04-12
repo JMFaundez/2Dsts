@@ -3,7 +3,7 @@ clear all
 addpath matlab_script/
 
 % Load an unroll data
-L = load('stsINT5.mat');
+L = load('stsINT6.mat');
 data = L.data_int;
 
 x = data(:,:,1);
